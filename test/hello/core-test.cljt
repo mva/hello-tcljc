@@ -1,0 +1,5 @@
+(ns hello.core-test
+  (:require [tinyclj.alpha.ptest :refer :all]))
+
+(deftest my-test
+  (is (= 2 2)))

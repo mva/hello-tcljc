@@ -1,0 +1,16 @@
+(ns hello.run-tests
+  (:require
+   hello.core
+   hello.core-test
+   [tinyclj.alpha.ptest :refer [run-scoped-tests]]))
+
+(def all-namespaces '[hello.core-test])
+
+(defn run []
+  (run-scoped-tests all-namespaces))
+
+(defn -main [& args]
+  (try
+    (apply run args)
+    (finally
+      (shutdown-agents))))     ;can only shut down when owning the JVM
