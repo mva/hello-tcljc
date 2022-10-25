@@ -1,5 +1,21 @@
 (ns hello.core-test
   (:require [tinyclj.alpha.ptest :refer :all]))
 
-(deftest my-test
+(deftest successful-test
   (is (= 2 2)))
+
+(deftest failing-test
+  (is (= '[["LOCAL 0: double[] a"]
+           (ALOAD_0)
+           (ICONST_0)
+           (DCONST_1)
+           (DUP2_X2)
+           (DASTORE)
+           (DRETURN)]
+         '[["LOCAL 0: double[] a"]
+           (ALOAD_0)
+           (ICONST_0)
+           (DCONST_1)
+           (DUP_X2)                     ;this should be (DUP2_X2)
+           (DASTORE)
+           (DRETURN)])))
