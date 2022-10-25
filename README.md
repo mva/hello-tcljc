@@ -9,12 +9,11 @@ This repository serves as a basic project template, using the classic
 
 - An OpenJDK build of `jdk-sandbox`'s
   [classfile-api-branch](https://github.com/openjdk/jdk-sandbox/tree/classfile-api-branch).
-  This repository holds the in-development Classfile API ([JEP
-  draft](https://openjdk.org/jeps/8280389)) and also follows the
-  OpenJDK development version on an irregular schedule (at the time of
-  writing this will become JDK 20).  It holds code that may change at
-  the drop of a hat, and that may never make it into a stable JDK
-  release.
+  This branch holds the in-development Classfile API ([draft
+  JEP](https://openjdk.org/jeps/8280389)) and also follows the OpenJDK
+  development version on an irregular schedule (at the time of writing
+  this will become JDK 20).  It holds code that may change at the drop
+  of a hat, and that may never make it into a stable JDK release.
 
 - A copy of `tcljc`'s modules matching the OpenJDK build from
   repository
