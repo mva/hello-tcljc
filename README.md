@@ -7,13 +7,13 @@ This repository serves as a basic project template, using the classic
 
 - Linux.  Has not been tested with Window or macOS *at all*.
 
-- An OpenJDK build of `jdk-sandbox`'s
-  [classfile-api-branch](https://github.com/openjdk/jdk-sandbox/tree/classfile-api-branch).
-  This branch holds the in-development Classfile API ([draft
-  JEP](https://openjdk.org/jeps/8280389)) and also follows the OpenJDK
-  development version on an irregular schedule (at the time of writing
-  this will become JDK 20).  It holds code that may change at the drop
-  of a hat, and that may never make it into a stable JDK release.
+- A build of [OpenJDK](https://github.com/openjdk/jdk) tagged
+  `jdk-21+14` or later that includes the in-development Classfile API
+  ([draft JEP](https://openjdk.org/jeps/8280389)).  Please note that
+  it is currently considered an *internal* library and is expected to
+  move to a *preview API library* over time.  For more information,
+  see [Classfile API implementation merged to
+  JDK](https://mail.openjdk.org/pipermail/classfile-api-dev/2023-March/000228.html).
 
 - A copy of `tcljc`'s modules matching the OpenJDK build from
   repository
