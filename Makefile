@@ -4,13 +4,13 @@ TCLJC_MDIR ?= ../bootstrap-tcljc
 JAVA_BIN=$(if $(JAVA_HOME),$(JAVA_HOME)/bin/,)
 JAVA=$(JAVA_BIN)java
 
-JAVA_OPTS=--enable-preview --add-modules jdk.incubator.concurrent \
-  --add-exports java.base/jdk.classfile=tinyclj.compiler \
-  --add-exports java.base/jdk.classfile.constantpool=tinyclj.compiler \
-  --add-exports java.base/jdk.classfile.instruction=tinyclj.compiler \
-  --add-exports java.base/jdk.classfile.attribute=tinyclj.compiler
+JAVA_OPTS=--enable-preview \
+  --add-exports java.base/jdk.internal.classfile=tinyclj.compiler \
+  --add-exports java.base/jdk.internal.classfile.constantpool=tinyclj.compiler \
+  --add-exports java.base/jdk.internal.classfile.instruction=tinyclj.compiler \
+  --add-exports java.base/jdk.internal.classfile.attribute=tinyclj.compiler
 
-TCLJC=$(JAVA) $(JAVA_OPTS) -p $(TCLJC_MDIR) -m tinyclj.compiler
+TCLJC_OPTS=$(JAVA_OPTS) -p $(TCLJC_MDIR) -m tinyclj.compiler
 
 MAIN_NS=hello.core
 RUN_TESTS_NS=hello.run-tests
@@ -19,19 +19,19 @@ RUN_TESTS_NS=hello.run-tests
 # Compile namespace to classes in default destination directory
 # /tmp/$(USER)/tinyclj/hello-tcljc/.
 compile:
-	$(TCLJC) $(RUN_TESTS_NS)
+	$(JAVA) $(TCLJC_OPTS) $(RUN_TESTS_NS)
 
 # Loop: Watch for updates to source files, then compile.
 watch-and-compile:
-	$(TCLJC) --watch $(RUN_TESTS_NS)
+	$(JAVA) $(TCLJC_OPTS) --watch $(RUN_TESTS_NS)
 
 # Compile namespace and run parameterless function.  No classes are written.
 run:
-	$(TCLJC) -d :none $(MAIN_NS)/run
+	$(JAVA) $(TCLJC_OPTS) -d :none $(MAIN_NS)/run
 
 # Loop: Watch for updates to source files, then compile & run.
 watch-and-run:
-	$(TCLJC) --watch $(MAIN_NS)/run
+	$(JAVA) $(TCLJC_OPTS) --watch $(MAIN_NS)/run
 
 
 # Default destination directory of the compiler.
@@ -52,7 +52,7 @@ test:
 
 # Loop: Watch for updates to source files, then compile & run tests.
 watch-and-test:
-	$(TCLJC) --watch $(RUN_TESTS_NS)/run
+	$(JAVA) $(TCLJC_OPTS) --watch $(RUN_TESTS_NS)/run
 
 
 clean:
