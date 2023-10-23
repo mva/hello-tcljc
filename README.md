@@ -7,19 +7,18 @@ This repository serves as a basic project template, using the classic
 
 - Linux.  Has not been tested with Window or macOS *at all*.
 
-- A build of [OpenJDK](https://github.com/openjdk/jdk) tagged
-  `jdk-21+14` or later that includes the in-development Classfile API
-  ([draft JEP](https://openjdk.org/jeps/8280389)).  Please note that
-  it is currently considered an *internal* library and is expected to
-  move to a *preview API library* over time.  For more information,
-  see [Classfile API implementation merged to
-  JDK](https://mail.openjdk.org/pipermail/classfile-api-dev/2023-March/000228.html).
+- An **early-access** build of [OpenJDK](https://jdk.java.net/) (at
+  the time of writing JDK 22 b20 aka `jdk-22+20`) that includes the
+  proposed [JEP 457: Class-File API
+  (Preview)](https://openjdk.org/jeps/457).  Please note that this JEP
+  currently has the status of a *preview API library* and as such is
+  subject to changes that won't be binary compatible to prior
+  versions.
 
-- A copy of `tcljc`'s modules matching the OpenJDK build from
-  repository
-  [bootstrap-tcljc](https://github.com/mva/bootstrap-tcljc).  As long
-  as there are no releases, the modules are distributed as a
-  repository of classfiles.
+- A copy of `tcljc`'s modules from repository
+  [bootstrap-tcljc](https://github.com/mva/bootstrap-tcljc) that match
+  the early-access OpenJDK build.  As long as there are no releases,
+  the modules will be distributed as a repository of class files.
 
 ### Running the Thing
 
@@ -31,10 +30,10 @@ triggered and on success a parameterless function is called.
 
 The makefile reads two environment variables:
 
-- `JAVA_HOME` must point to the OpenJDK build and the JVM executable
-  `$JAVE_HOME/bin/java` will be used.  Default is
+- `JAVA_HOME` must point to the OpenJDK build.  The JVM executable
+  `$JAVA_HOME/bin/java` will be used.  Default is
   `~/local/jdk-classfile`.
 
 - `TCLJC_MDIR` is the bootstrap-tcljc directory holding the three
   modules that comprise the compiler: runtime, core libraries, and the
-  compiler itself.  Default is `../bootstrap-tcljc`.
+  compiler classes.  Default is `../bootstrap-tcljc`.
