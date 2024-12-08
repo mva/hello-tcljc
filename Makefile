@@ -4,7 +4,7 @@ TCLJC_MDIR ?= ../bootstrap-tcljc
 JAVA_BIN=$(if $(JAVA_HOME),$(JAVA_HOME)/bin/,)
 JAVA=$(JAVA_BIN)java
 
-JAVA_OPTS=--enable-preview
+JAVA_OPTS=
 TCLJC_OPTS=$(JAVA_OPTS) -p $(TCLJC_MDIR) -m tinyclj.compiler
 
 MAIN_NS=hello.core

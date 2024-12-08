@@ -8,11 +8,8 @@ This repository serves as a basic project template, using the classic
 - Linux.  Has not been tested with Window or macOS *at all*.
 
 - An **early-access** build of [OpenJDK](https://jdk.java.net/) (at
-  the time of writing JDK 23 b22 aka `jdk-23+22`) that includes [JEP
-  466: Class-File API (Second Preview)](https://openjdk.org/jeps/466).
-  Please note that this JEP currently has the status of a *preview*
-  and as such is subject to changes that won't be binary compatible to
-  prior versions.
+  the time of writing JDK 24 b27 aka `jdk-24+27`) that includes [JEP
+  484: Class-File API](https://openjdk.org/jeps/484).
 
 - A copy of `tcljc`'s modules from repository
   [bootstrap-tcljc](https://github.com/mva/bootstrap-tcljc) that match
