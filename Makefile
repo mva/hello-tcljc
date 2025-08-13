@@ -12,7 +12,7 @@ RUN_TESTS_NS=hello.run-tests
 
 
 # Compile namespace to classes in default destination directory
-# /tmp/$(USER)/tinyclj/hello-tcljc/.
+# /tmp/$(USER)/tcljc/hello-tcljc/.
 compile:
 	$(JAVA) $(TCLJC_OPTS) $(RUN_TESTS_NS)
 
@@ -31,7 +31,7 @@ watch-and-run:
 
 # Default destination directory of the compiler.
 PROJECT_DIR=$(notdir $(PWD))
-DEST_DIR=/tmp/$(USER)/tinyclj/$(PROJECT_DIR)
+DEST_DIR=/tmp/$(USER)/tcljc/$(PROJECT_DIR)
 
 # Run static main method of hello.core using compiled classes.  Uses
 # output of "make compile".  Does not load compiler classes.
