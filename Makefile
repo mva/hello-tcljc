@@ -5,7 +5,7 @@ JAVA_BIN=$(if $(JAVA_HOME),$(JAVA_HOME)/bin/,)
 JAVA=$(JAVA_BIN)java
 
 JAVA_OPTS=
-TCLJC_OPTS=$(JAVA_OPTS) -p $(TCLJC_MDIR) -m tinyclj.compiler
+TCLJC_OPTS=$(JAVA_OPTS) -p $(TCLJC_MDIR) -m tcljc.compiler
 
 MAIN_NS=hello.core
 RUN_TESTS_NS=hello.run-tests
@@ -36,14 +36,14 @@ DEST_DIR=/tmp/$(USER)/tinyclj/$(PROJECT_DIR)
 # Run static main method of hello.core using compiled classes.  Uses
 # output of "make compile".  Does not load compiler classes.
 run-main:
-	$(JAVA) -p $(TCLJC_MDIR) --add-modules tinyclj.core -cp $(DEST_DIR) $(MAIN_NS).___ $(ARGS)
+	$(JAVA) -p $(TCLJC_MDIR) --add-modules tcljc.core -cp $(DEST_DIR) $(MAIN_NS).___ $(ARGS)
 
 
 
 # Run static main method of namespace hello.run-tests using compiled
 # classes.  Uses output of "make compile".
 test:
-	$(JAVA) --enable-preview -p $(TCLJC_MDIR) --add-modules tinyclj.core -cp $(DEST_DIR) $(RUN_TESTS_NS).___
+	$(JAVA) --enable-preview -p $(TCLJC_MDIR) --add-modules tcljc.core -cp $(DEST_DIR) $(RUN_TESTS_NS).___
 
 # Loop: Watch for updates to source files, then compile & run tests.
 watch-and-test:
